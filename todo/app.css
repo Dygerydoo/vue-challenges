@@ -9,11 +9,11 @@ body {
 .vue-Todo {
   background: white;
   border-radius: 3px;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
   min-width: 400px;
-  max-width: 500px;
+  max-width: 600px;
   -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .28);
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, .28);
 }

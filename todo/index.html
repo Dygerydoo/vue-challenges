@@ -7,6 +7,36 @@
     <link rel="stylesheet" href="./app.css">
   </head>
   <body>
+    <div id="app">
+      <main class="vue-Todo">
+        <section class="vue-Todo_Header">
+          <p class="vue-Todo_HeaderDate">
+            {{ todoDate }}
+          </p>
+          <p class="vue-Todo_HeaderTaskCounter">
+            Tienes {{ taskList.length }} tareas
+          </p>
+          <form @submit.prevent>
+            <button
+              class="btn-floating orange waves-effect waves-light"
+              @click="addTask"
+            >
+              <i class="material-icons">add</i>
+            </button>
+            <div class="vue-Todo_AddTaskInput input-field col s6">
+              <input
+                id="input_task"
+                type="text"
+                class="validate"
+                v-model="taskItem"
+              >
+              <label for="input_task">Añadir una tarea</label>
+            </div>
+          </form>
+        </section>
+      </main>
+      <pre>{{$data}}</pre>
+    </div>
     <!-- Javascript -->
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="./main.js"></script>
