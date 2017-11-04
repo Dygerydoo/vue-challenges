@@ -7,13 +7,16 @@
     <link rel="stylesheet" href="./app.css">
   </head>
   <body>
-    <div id="app">
+    <div id="app" v-cloak>
       <main class="vue-Todo">
         <section class="vue-Todo_Header">
           <p class="vue-Todo_HeaderDate">
             {{ todoDate }}
           </p>
-          <p class="vue-Todo_HeaderTaskCounter">
+          <p
+            class="vue-Todo_HeaderTaskCounter"
+            v-if="!taskListEmpty"
+          >
             Tienes {{ taskList.length }} tareas
           </p>
           <form @submit.prevent>
@@ -29,6 +32,7 @@
                 type="text"
                 class="validate"
                 v-model="taskItem"
+                ref="taskInput"
               >
               <label for="input_task">Añadir una tarea</label>
             </div>
@@ -50,6 +54,24 @@
                 {{ todoTitle }}
               </h3>
             </li>
+            <li v-for="(task, index) in taskList" class="collection-item">
+              <p class="collection-item__text">
+                {{ task }}
+              </p>
+              <button
+                class="vue-Todo_Button-remove"
+                @click="removeTodo(index)"
+              >
+                Eliminar
+              </button>
+            </li>
+            <div
+              v-if="taskListEmpty"
+              class="vue-Todo-empty"
+              @click="addTaskFocus"
+            >
+              <p>No hay tareas: <a>Añade una nueva</a></p>
+            </div>
           </ul>
         </section>
       </main>

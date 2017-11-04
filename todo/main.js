@@ -31,6 +31,17 @@ new Vue({
     setTitle: function(event) {
       this.todoTitle = event.target.value;
       this.isEditing = false;
+    },
+    removeTodo: function(index) {
+      this.taskList.splice(index, 1);
+    },
+    addTaskFocus: function() {
+      this.$refs.taskInput.focus();
+    }
+  },
+  computed: {
+    taskListEmpty: function() {
+      return this.taskList.length === 0;
     }
   }
 });
