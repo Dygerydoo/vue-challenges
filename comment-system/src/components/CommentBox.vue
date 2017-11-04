@@ -1,22 +1,35 @@
 <template>
   <div class="app-CommentBox">
-      <!-- Añadir el componente necesario -->
-      <!-- Aquí tiene que aparecer el elemento extra info añadido desde el componente padre -->
       <div class="app-CommentBox_List">
-           <!-- Añadir el componente necesario -->
+        <app-single-comment
+          v-for="(comment, index) in comments"
+          :comment="comment"
+          :index="index"
+          :key="index"
+        >
+        </app-single-comment>
       </div>
     </div>
 </template>
 
 <script>
-// Importar componentes
+import AppSingleComment from './SingleComment.vue';
 
 export default {
   name: 'app-comment-box',
-  //Añadir la propiedad data, los métodos y la importación de componentes
+  data() {
+    return {
+      comments: [
+        { user: 'Alejandro Rivas', userReference: '@alriv', message: 'Me gusta la idea' },
+        { user: 'Manuel F', userReference: '@manfatu', message: 'Genial, es una estupenda idea y un avance importante' },
+      ]
+    }
+  },
+  components: {
+    AppSingleComment,
+  }
 }
 </script>
 
 <style>
-  /* Añadir los estilos necesarios para la transición */
 </style>

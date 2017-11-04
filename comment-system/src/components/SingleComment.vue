@@ -8,12 +8,13 @@
     <div class="media-content">
       <div class="content">
         <p>
-          <!-- Aquí van los datos del usuario y el comentario -->
+          <strong>{{ comment.user }}</strong> <small>{{ comment.userReference }}</small>
+          <br>
+          {{ comment.message }}
         </p>
       </div>
     </div>
     <div class="media-right">
-      <!-- Aquí va el botón para poder borrar el comentario -->
     </div>
   </article>
 </template>
@@ -21,7 +22,20 @@
 <script>
 export default {
   name: 'app-single-comment',
-  // Añadir los props necesarios y los métodos relacionados con el comentario
+  props: {
+    comment: {
+      type: Object,
+      default: function() {
+        return { message: 'Text por defecto' }
+      },
+      required: true,
+    },
+    index: {
+      type: Number,
+      default: 100,
+      required: true,
+    }
+  }
 }
 </script>
 
