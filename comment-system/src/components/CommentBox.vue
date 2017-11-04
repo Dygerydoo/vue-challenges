@@ -1,5 +1,6 @@
 <template>
   <div class="app-CommentBox">
+      <app-comment-form @newComment="addComment"></app-comment-form>
       <div class="app-CommentBox_List">
         <app-single-comment
           v-for="(comment, index) in comments"
@@ -15,6 +16,7 @@
 
 <script>
 import AppSingleComment from './SingleComment.vue';
+import AppCommentForm from './CommentForm.vue';
 
 export default {
   name: 'app-comment-box',
@@ -28,10 +30,18 @@ export default {
   },
   components: {
     AppSingleComment,
+    AppCommentForm,
   },
   methods: {
     removeComment(index) {
       this.comments.splice(index, 1);
+    },
+    addComment(user, userReference, message) {
+      this.comments.push({
+        user,
+        userReference,
+        message,
+      });
     }
   }
 }

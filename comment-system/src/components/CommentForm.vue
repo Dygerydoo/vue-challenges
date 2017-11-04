@@ -8,13 +8,17 @@
     <div class="media-content">
       <div class="field">
         <p class="control">
-          <!-- Añadir el textarea donde introducir el comentario -->
+          <textarea
+            class="textarea"
+            placeholder="Escribe tu mensaje"
+            v-model="message">
+          </textarea>
         </p>
       </div>
       <nav class="level">
         <div class="level-left">
           <div class="level-item">
-           <!-- Añadir el botón para comentar -->
+            <a class="button is-primary" @click="addComment">Comentar</a>
           </div>
         </div>
       </nav>
@@ -24,7 +28,23 @@
 
 <script>
 export default {
- // Añadir los métodos y el elemento data con los campos necesarios
+  data() {
+    return {
+      name: 'Random',
+      userReference: '@randoman',
+      message: '',
+    }
+  },
+  methods: {
+    addComment() {
+      if(this.message === '') {
+        alert('Debes escribir algo');
+      } else {
+        this.$emit('newComment', this.name, this.userReference, this.message);
+        this.message = '';
+      }
+    }
+  }
 }
 </script>
 
