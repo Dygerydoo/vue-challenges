@@ -15,6 +15,10 @@
       </div>
     </div>
     <div class="media-right">
+      <button
+        class="delete"
+        @click="EraseComment"
+      ></button>
     </div>
   </article>
 </template>
@@ -34,6 +38,11 @@ export default {
       type: Number,
       default: 100,
       required: true,
+    }
+  },
+  methods: {
+    EraseComment(index) {
+      this.$emit('Remove', this.index);
     }
   }
 }

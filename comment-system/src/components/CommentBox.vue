@@ -6,6 +6,7 @@
           :comment="comment"
           :index="index"
           :key="index"
+          @Remove="removeComment"
         >
         </app-single-comment>
       </div>
@@ -27,6 +28,11 @@ export default {
   },
   components: {
     AppSingleComment,
+  },
+  methods: {
+    removeComment(index) {
+      this.comments.splice(index, 1);
+    }
   }
 }
 </script>
