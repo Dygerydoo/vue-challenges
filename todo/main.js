@@ -16,6 +16,8 @@ new Vue({
       'Comprarme camisetas',
     ],
     taskItem: '',
+    todoTitle: 'Mi lista de tareas',
+    isEditing: false,
   },
   methods: {
     addTask: function() {
@@ -25,6 +27,10 @@ new Vue({
         this.taskList.push(this.taskItem);
         this.taskItem = '';
       }
+    },
+    setTitle: function(event) {
+      this.todoTitle = event.target.value;
+      this.isEditing = false;
     }
   }
 });

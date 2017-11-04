@@ -34,6 +34,24 @@
             </div>
           </form>
         </section>
+        <section class="vue-Todo_Body">
+          <ul class="collection with-header">
+            <li class="collection-header">
+              <input
+                v-if="isEditing"
+                :value="todoTitle"
+                @keyup.enter="setTitle($event)"
+                @blur="isEditing = false"
+              >
+              <h3
+                v-else
+                @click="isEditing = true"
+              >
+                {{ todoTitle }}
+              </h3>
+            </li>
+          </ul>
+        </section>
       </main>
       <pre>{{$data}}</pre>
     </div>
