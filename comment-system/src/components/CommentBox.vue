@@ -1,15 +1,18 @@
 <template>
   <div class="app-CommentBox">
       <app-comment-form @newComment="addComment"></app-comment-form>
+      <slot name="extra-info"></slot>
       <div class="app-CommentBox_List">
-        <app-single-comment
-          v-for="(comment, index) in comments"
-          :comment="comment"
-          :index="index"
-          :key="index"
-          @Remove="removeComment"
-        >
-        </app-single-comment>
+        <transition-group name="fade">
+          <app-single-comment
+            v-for="(comment, index) in comments"
+            :comment="comment"
+            :index="index"
+            :key="index"
+            @Remove="removeComment"
+          >
+          </app-single-comment>
+        </transition-group>
       </div>
     </div>
 </template>
@@ -48,4 +51,13 @@ export default {
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>
