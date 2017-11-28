@@ -1,10 +1,14 @@
 <template>
   <div id="app">
     <header class="app-Header">
-      <a class="app-Header_Logo" href="/">
+      <router-link
+        class="app-Header_Logo"
+        :to="{ name: 'home' }"
+      >
         <img src="./assets/logo.png">
-      </a>
+      </router-link>
     </header>
+    <router-view></router-view>
   </div>
 </template>
 
