@@ -7,6 +7,11 @@ export const store = new Vuex.Store({
   state: {
     searchResults: [],
   },
+  getters: {
+    getSearchResults: state => {
+      return state.searchResults;
+    }
+  },
   mutations: {
     FILL_SEARCH_LIST(state, searchResults) {
       state.searchResults = searchResults;

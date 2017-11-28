@@ -7,11 +7,19 @@
       @keyup="searchSongs(searchQuery)"
       placeholder="Búsqueda"
     >
+    <div class="app-SongSearch_Results">
+      <song-list
+        :list-content="getSearchResults"
+      >
+      </song-list>
+    </div>
   </div>
 </template>
 
 <script>
 import { search } from '@/api';
+import { mapGetters } from 'vuex';
+import SongList from 'components/common/SongList/SongList.vue';
 
 export default {
   name: 'song-search',
@@ -35,8 +43,15 @@ export default {
         this.$store.dispatch('fillSearchList', apiResponse);
       })
     }
+  },
+  computed: {
+    ...mapGetters([
+      'getSearchResults',
+    ]),
+  },
+  components: {
+    SongList,
   }
-
 }
 </script>
 
