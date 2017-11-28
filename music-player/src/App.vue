@@ -7,15 +7,20 @@
       >
         <img src="./assets/logo.png">
       </router-link>
+      <song-search></song-search>
     </header>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import SongSearch from 'components/common/SongSearch/SongSearch.vue';
 
 export default {
   name: 'app',
+  components: {
+    SongSearch,
+  }
 }
 </script>
 
