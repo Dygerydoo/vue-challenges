@@ -1,5 +1,6 @@
 <template>
   <div class="app-Player">
+    <player-controls></player-controls>
     <audio
       :src="song.stream"
       preload="auto"
@@ -9,6 +10,8 @@
 </template>
 
 <script>
+import PlayerControls from 'components/common/Player/PlayerControls/PlayerControls.vue';
+
 export default {
  name: 'player-bar',
  props: {
@@ -16,6 +19,9 @@ export default {
      type: Object,
      required: true,
    }
+ },
+ components: {
+   PlayerControls,
  },
  mounted() {
    this.$store.commit('GET_AUDIO', this.$el.querySelectorAll('audio')[0]);

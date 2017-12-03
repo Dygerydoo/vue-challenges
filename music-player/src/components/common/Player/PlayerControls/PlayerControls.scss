@@ -1,0 +1,13 @@
+@import '~@/assets/stylesheets/foundation/config';
+@import '~@/assets/stylesheets/foundation/helpers';
+@import '~@/assets/stylesheets/components/buttons';
+
+.app-PlayerControls {
+  display: flex;
+  flex: 1;
+  align-items: center;
+
+  .inactive {
+    opacity: .3;
+  }
+}

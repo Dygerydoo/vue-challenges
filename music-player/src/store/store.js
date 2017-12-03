@@ -17,6 +17,9 @@ export const store = new Vuex.Store({
     },
     getSelectedSong: state => {
       return state.selectedSong;
+    },
+    songIsPlaying: state => {
+      return state.isPlaying;
     }
   },
   mutations: {
@@ -26,10 +29,19 @@ export const store = new Vuex.Store({
     PLAY_SONG(state, song) {
       state.isPlaying = true;
       state.isPaused = false;
-      state.selectedSong = song;
-      state.audio.addEventListener('loadeddata', () => {
+      if (song) {
+        state.selectedSong = song;
+        state.audio.addEventListener('loadeddata', () => {
+          state.audio.play();
+        });
+      } else {
         state.audio.play();
-      });
+      }
+    },
+    PAUSE_SONG(state) {
+      state.isPlaying = false;
+      state.isPaused = true;
+      state.audio.pause();
     },
     GET_AUDIO(state, audio) {
       state.audio = audio;
