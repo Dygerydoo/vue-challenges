@@ -10,16 +10,28 @@
       <song-search></song-search>
     </header>
     <router-view></router-view>
+    <player-bar
+      :song="getSelectedSong"
+    >
+    </player-bar>
   </div>
 </template>
 
 <script>
 import SongSearch from 'components/common/SongSearch/SongSearch.vue';
+import PlayerBar from 'components/common/Player/PlayerBar.vue';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'app',
+  computed: {
+    ...mapGetters([
+      'getSelectedSong',
+    ]),
+  },
   components: {
     SongSearch,
+    PlayerBar,
   }
 }
 </script>

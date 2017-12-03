@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
   state: {
+    audio: '',
     searchResults: [],
     isPlaying: false,
     isPaused: false,
@@ -13,6 +14,9 @@ export const store = new Vuex.Store({
   getters: {
     getSearchResults: state => {
       return state.searchResults;
+    },
+    getSelectedSong: state => {
+      return state.selectedSong;
     }
   },
   mutations: {
@@ -23,6 +27,12 @@ export const store = new Vuex.Store({
       state.isPlaying = true;
       state.isPaused = false;
       state.selectedSong = song;
+      state.audio.addEventListener('loadeddata', () => {
+        state.audio.play();
+      });
+    },
+    GET_AUDIO(state, audio) {
+      state.audio = audio;
     }
   },
   actions: {

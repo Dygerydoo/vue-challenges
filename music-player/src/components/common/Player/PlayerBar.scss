@@ -1,0 +1,99 @@
+@import '~@/assets/stylesheets/foundation/config';
+@import '~@/assets/stylesheets/foundation/helpers';
+
+.wrapper {
+  display: flex;
+  flex: 1;
+}
+
+.app-Player {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90px;
+  background: $white;
+  box-shadow: 0 -2px 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.app-Player_Utilities {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+  margin-left: auto;
+}
+
+.app-Player_AlbumCover {
+  width: 90px;
+  height: 90px;
+  margin-right: 1em;
+
+  img {
+    width: 100%;
+    min-width: 90px;
+  }
+}
+
+.app-Player_CurrentSong {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  min-width: 250px;
+  max-width: 250px;
+}
+
+.app-Player_SongDetails {
+  color: $grey-medium;
+}
+
+.app-Player_SongName {
+  @include ellipsis;
+  margin: 0;
+  margin-bottom: .5em;
+}
+
+.app-Player_SongTimer {
+  align-self: center;
+  margin: 1em;
+}
+
+.app-Player_ProgressBar {
+  position: absolute;
+  width: calc(100% - 90px);
+  height: 5px;
+  margin-left: 90px;
+  background: $grey-light;
+
+  &:hover {
+    .app-ProgressBar_Range {
+      opacity: 1;
+    }
+  }
+}
+
+.app-ProgressBar_Range {
+  cursor: pointer;
+  position: absolute;
+  top: -2px;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  height: 5px;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 200ms linear;
+  -webkit-appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.app-Player_CurrentProgress {
+  appearance: none;
+  position: absolute;
+  top: 0;
+  height: 5px;
+  background: $color-primary;
+}
