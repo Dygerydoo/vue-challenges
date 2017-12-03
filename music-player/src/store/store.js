@@ -6,6 +6,8 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     audio: '',
+    audioDuration: 0,
+    currentTime: 0,
     searchResults: [],
     isPlaying: false,
     isPaused: false,
@@ -18,8 +20,20 @@ export const store = new Vuex.Store({
     getSelectedSong: state => {
       return state.selectedSong;
     },
+    getAudioDuration: state => {
+      return state.audioDuration;
+    },
+    getCurrentTime: state => {
+      return state.currentTime;
+    },
+    getCurrentAudio: state => {
+      return state.audio;
+    },
     songIsPlaying: state => {
       return state.isPlaying;
+    },
+    songIsPaused: state => {
+      return state.isPaused;
     }
   },
   mutations: {
@@ -45,6 +59,12 @@ export const store = new Vuex.Store({
     },
     GET_AUDIO(state, audio) {
       state.audio = audio;
+    },
+    GET_AUDIO_DURATION(state) {
+      state.audioDuration = state.audio.duration;
+    },
+    CURRENT_AUDIO_TIME(state) {
+      state.currentTime = state.audio.currentTime;
     }
   },
   actions: {

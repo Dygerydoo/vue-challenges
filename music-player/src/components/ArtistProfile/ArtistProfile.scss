@@ -1,0 +1,58 @@
+@import '~@/assets/stylesheets/foundation/config';
+@import '~@/assets/stylesheets/foundation/helpers';
+
+.app-ArtistProfile {
+  padding: 1em;
+  margin: 1em auto;
+  width: 100%;
+  max-width: 550px;
+
+  include mq(desktop) {
+    width: 60%;
+  }
+}
+
+.app-ArtistProfileContainer {
+  display: flex;
+  padding: 1em;
+  border: $border-default;
+  border-radius: 2px;
+  background: $white;
+}
+
+.app-ArtistProfile_Avatar {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 5px solid $white;
+
+  img {
+    width: 100%;
+  }
+}
+
+.app-ArtistProfile_UserName {
+  text-align: center;
+  margin: 0;
+}
+
+.app-ArtistProfile_Content {
+  padding: 1em;
+  padding-top: 4em;
+  background: white;
+  position: relative;
+  top: -55px;
+  z-index: -1;
+}
+
+.app-ArtistProfile_Location {
+  margin: 0;
+  color: $grey-medium;
+}
+
+.app-ArtistProfile_Description {
+  padding-top: 1em;
+  border-top: $border-default;
+}
