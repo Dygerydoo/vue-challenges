@@ -12,6 +12,7 @@ export const store = new Vuex.Store({
     isPlaying: false,
     isPaused: false,
     selectedSong: {},
+    artistData: {},
   },
   getters: {
     getSearchResults: state => {
@@ -34,11 +35,17 @@ export const store = new Vuex.Store({
     },
     songIsPaused: state => {
       return state.isPaused;
+    },
+    getArtistData: state => {
+      return state.artistData;
     }
   },
   mutations: {
     FILL_SEARCH_LIST(state, searchResults) {
       state.searchResults = searchResults;
+    },
+    FILL_ARTIST_DATA(state, artistData) {
+      state.artistData = artistData;
     },
     PLAY_SONG(state, song) {
       state.isPlaying = true;
@@ -70,6 +77,9 @@ export const store = new Vuex.Store({
   actions: {
     fillSearchList({commit}, searchResults) {
       commit('FILL_SEARCH_LIST', searchResults);
+    },
+    fillArtistData({commit}, artistData) {
+      commit('FILL_ARTIST_DATA', artistData);
     },
     playSong({commit}, song) {
       commit('PLAY_SONG', song);

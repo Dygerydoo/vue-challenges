@@ -16,6 +16,9 @@
         <p class="app-Player_SongName">
           {{song.title}}
         </p>
+        <small class="app-Player_SongDetails">
+          <router-link :to="{ name: 'artist', params: { artistID: song.artistID, artistName: song.artist }}">{{song.artist}}</router-link>
+        </small>
       </div>
     </div>
     <player-controls></player-controls>

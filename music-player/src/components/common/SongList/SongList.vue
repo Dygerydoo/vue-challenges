@@ -9,7 +9,7 @@
       <div class="app-SongList_ItemData">
         <p class="app-SongList_ItemTitle">{{song.title}}</p>
         <small class="app-SongSearch_ItemSubtitle">
-          <router-link :to="{ name: 'home'}">{{song.artist}}</router-link>
+          <router-link :to="{ name: 'artist', params: { artistID: song.artistID, artistName: song.artist }}">{{song.artist}}</router-link>
         </small>
       </div>
       <div class="app-SongList_Buttons">
